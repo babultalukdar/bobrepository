@@ -1,0 +1,20 @@
+pipeline{
+	agent any
+	stages{
+		stage('Init'){
+			steps{
+				bash 'Hi this is babul'
+			}
+		}
+		stage('Build'){
+			steps{
+				bash 'Build sample maven project'
+			}
+		}
+		stage('Deploy'){
+			steps{
+				bash 'Deploy maven project'
+			}
+		}
+	}
+}
