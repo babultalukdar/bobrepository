@@ -3,17 +3,17 @@ pipeline{
 	stages{
 		stage('Init'){
 			steps{
-				bash 'Hi this is babul'
+				sh 'Hi this is babul'
 			}
 		}
 		stage('Build'){
 			steps{
-				bash 'Build sample maven project'
+				sh 'Build sample maven project'
 			}
 		}
 		stage('Deploy'){
 			steps{
-				bash 'Deploy maven project'
+				sh 'Deploy maven project'
 			}
 		}
 	}
