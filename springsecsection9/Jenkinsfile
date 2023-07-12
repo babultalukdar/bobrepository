@@ -9,7 +9,7 @@ pipeline{
 			  echo "Hi this is babul ${NEW_VERSION}"
 			}
 		}
-		stage('Build'){
+		stage('maven build'){
 			steps{
 				sh 'mvn -f springsecsection9/pom.xml clean package'
 			}
@@ -21,9 +21,10 @@ pipeline{
 		
 			}
 		}
-		stage('Deploy'){
+		stage('docker build'){
 			steps{
 				echo 'Deploy maven project'
+				sh 'Docker build -t babultalukdar/springSecurityImage'
 			}
 		}
 	}
