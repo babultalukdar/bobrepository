@@ -13,6 +13,13 @@ pipeline{
 			steps{
 				sh 'mvn -f springsecsection9/pom.xml clean package'
 			}
+			post{
+				success {
+                    		echo 'Now Archiving artifacts'
+                    		archiveArtifacts artifacts:'**/*.war'
+                		}
+		
+			}
 		}
 		stage('Deploy'){
 			steps{
@@ -20,10 +27,5 @@ pipeline{
 			}
 		}
 	}
-	post{
-		success {
-                    echo 'Now Archiving'
-                }
-		
-	}
+	
 }
