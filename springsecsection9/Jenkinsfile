@@ -11,7 +11,7 @@ pipeline{
 		}
 		stage('Build'){
 			steps{
-				sh 'mvn clean package'
+				sh 'mvn -f springsecsection9/pom.xml clean package'
 			}
 		}
 		stage('Deploy'){
@@ -19,5 +19,11 @@ pipeline{
 				echo 'Deploy maven project'
 			}
 		}
+	}
+	post{
+		success {
+                    echo 'Now Archiving'
+                }
+		
 	}
 }
