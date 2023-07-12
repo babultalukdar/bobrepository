@@ -24,7 +24,7 @@ pipeline{
 		stage('docker build'){
 			steps{
 				echo 'Deploy maven project'
-				sh 'Docker build -t babultalukdar/springSecurityImage'
+				sh 'Docker build'
 			}
 		}
 	}
