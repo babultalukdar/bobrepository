@@ -24,7 +24,7 @@ pipeline{
 		stage('docker build'){
 			steps{
 				echo 'Deploy maven project'
-				sh 'docker build  -t babultalukdar/springSecurityWeb -f springsecsection9/Dockerfile .'
+				sh 'docker build  -t babultalukdar/springsecurityweb -f springsecsection9/Dockerfile .'
 			}
 		}
 	}
