@@ -24,7 +24,15 @@ pipeline{
 		stage('docker build'){
 			steps{
 				echo 'Build docker image'
-				sh 'docker build  -t springsecurityweb -f springsecsection9/Dockerfile .'
+				sh 'docker build  -t babultalukdar/springsecurityweb -f springsecsection9/Dockerfile .'
+			}
+		}
+		stage('docker image push to hub'){
+			steps{
+				withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+    				sh 'docker login -u babultalukdar -p ${dockerhubpwd}'
+				}
+				sh 'docker push babultalukdar/springsecurityweb'
 			}
 		}
 	}
