@@ -16,14 +16,14 @@ pipeline{
 			post{
 				success {
                     		echo 'Now Archiving artifacts'
-                    		archiveArtifacts artifacts:'**/*.war'
+                    		archiveArtifacts artifacts:'**/*.jar'
                 		}
 		
 			}
 		}
 		stage('docker build'){
 			steps{
-				echo 'Deploy maven project'
+				echo 'Build docker image'
 				sh 'docker build  -t springsecurityweb -f springsecsection9/Dockerfile .'
 			}
 		}
